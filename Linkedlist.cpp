@@ -15,7 +15,7 @@ void init (nodeptr &L)
 }
 
 //单链表的销毁
-void destory (nodeptr &L)
+void destroy (nodeptr &L)
 {
     nodeptr p;
     while (L != NULL) //当链表不为空时
