@@ -14,13 +14,15 @@ void Initlist(Sqlist& L)
     L.date = new int[MAX_SIZE];
     L.length = 0; // 顺序表初始长度为0
 }
+
 // 顺序表的销毁
-void destroy(Sqlist &L)
+void destroy(Sqlist& L)
 {
     delete[]L.date;
     L.date = nullptr;
     L.length = 0;
 }
+
 // 判断顺序表是否为空
 bool IsEmpty(Sqlist L)
 {
@@ -38,7 +40,6 @@ void clear_Sqlist(Sqlist& L)
 {
     L.length = 0;
 }
-
 
 // 顺序表的插入
 int insert(Sqlist& L, int i, int x)
