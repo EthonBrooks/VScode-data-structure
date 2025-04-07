@@ -11,14 +11,44 @@ typedef struct node
 void init (nodeptr &L)
 {
     L = new node; //生成新节点作为头节点，用头指针L指向头节点
-    L->next = NULL; //头节点的next置空
+    L->next = nullptr; //头节点的next置空
+}
+
+//前插法创建单链表
+void createList_H(nodeptr &L, int n)
+{
+    L = new node; //生成新节点作为头节点
+    L->next = nullptr; //头节点的next置空
+    for (int i = 0; i < n; i++)
+    {
+        nodeptr s = new node; //生成新节点s
+        cin >> s->data; //输入数据
+        s->next = L->next; //将新节点s的next指向头节点的next
+        L->next = s; //将头节点的next指向新节点s
+    }
+}
+
+//后插法创建单链表
+void createList_R(nodeptr &L, int n)
+{
+    L = new node; //生成新节点作为头节点
+    L->next = nullptr; //头节点的next置空
+    nodeptr r = L; //创建一个尾指针r，指向头节点
+    for (int i = 0; i < n; i++)
+    {
+        nodeptr s = new node; //生成新节点s
+        cin >> s->data; //输入数据
+        s->next = nullptr; //新节点s的next置空
+        r->next = s; //将尾指针r的next指向新节点s
+        r = s; //将尾指针r指向新节点
+    }
 }
 
 //单链表的销毁
 void destroy (nodeptr &L)
 {
     nodeptr p;
-    while (L != NULL) //当链表不为空时
+    while (L != nullptr) //当链表不为空时
     {
         p = L; //将p指向当前头节点
         L = L->next; //将头指针L指向下一个节点
